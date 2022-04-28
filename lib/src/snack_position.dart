@@ -1,0 +1,1 @@
+enum SnackPosition { bottom, top }
