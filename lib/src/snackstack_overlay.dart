@@ -57,6 +57,7 @@ class _SnackstackOverlayState extends State<SnackstackOverlay> {
         event: e,
         onDismiss: () => _dismiss(e),
         timerDuration: e.duration,
+        onTap: e.onTap,
       );
     }).toList();
   }

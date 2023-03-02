@@ -13,6 +13,7 @@ class SnackEvent extends SnackstackEvent {
   final bool unique;
   final SnackEventHapticType? hapticType;
   final int? _timestamp;
+  final VoidCallback? onTap;
 
   SnackEvent({
     required this.color,
@@ -22,6 +23,7 @@ class SnackEvent extends SnackstackEvent {
     this.actions = const [],
     this.unique = false,
     this.hapticType,
+    this.onTap,
   }) : _timestamp = unique ? DateTime.now().millisecondsSinceEpoch : null;
 
   @override

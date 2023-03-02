@@ -60,6 +60,11 @@ class _ApplicationState extends State<Application> {
                 onPressed: addEvent3,
                 child: const Text('Add event unique'),
               ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: addEvent4,
+                child: const Text('Add event with tap handler'),
+              ),
             ],
           ),
         ),
@@ -103,6 +108,16 @@ class _ApplicationState extends State<Application> {
       title: 'Test text 3',
       duration: const Duration(seconds: 30),
       unique: true,
+    ));
+  }
+
+  void addEvent4() {
+    SnackstackManager().add(SnackEvent(
+      color: Colors.cyan,
+      title: 'Test text 4',
+      description: 'Tap on it and check debug console',
+      duration: const Duration(seconds: 5),
+      onTap: () => print('SUCESSFULLY TAPPED'),
     ));
   }
 }

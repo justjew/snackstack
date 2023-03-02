@@ -13,6 +13,7 @@ class SnackEventTile extends StatefulWidget {
   final SnackEvent event;
   final Function() onDismiss;
   final Duration timerDuration;
+  final VoidCallback? onTap;
 
   const SnackEventTile({
     Key? key,
@@ -21,6 +22,7 @@ class SnackEventTile extends StatefulWidget {
     required this.event,
     required this.onDismiss,
     this.timerDuration = const Duration(seconds: 5),
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -85,6 +87,20 @@ class _SnackEventTileState extends State<SnackEventTile>
 
   @override
   Widget build(BuildContext context) {
+    Widget body = SnackEventTileContent(
+      themeData: widget.themeData,
+      event: widget.event,
+      onClose: close,
+    );
+
+    if (widget.onTap != null) {
+      body = GestureDetector(
+        onTap: onTap,
+        behavior: HitTestBehavior.opaque,
+        child: body,
+      );
+    }
+
     return Dismissible(
       onDismissed: (_) => widget.onDismiss(),
       key: ValueKey(widget.event),
@@ -97,11 +113,7 @@ class _SnackEventTileState extends State<SnackEventTile>
             opacity: appearController,
             child: SlideTransition(
               position: appearOffsetAnimation,
-              child: SnackEventTileContent(
-                themeData: widget.themeData,
-                event: widget.event,
-                onClose: close,
-              ),
+              child: body,
             ),
           ),
         ),
@@ -113,6 +125,11 @@ class _SnackEventTileState extends State<SnackEventTile>
     await appearController.reverse();
     await resizeController.forward();
     widget.onDismiss();
+  }
+
+  void onTap() {
+    widget.onTap?.call();
+    close();
   }
 
   @override
