@@ -42,7 +42,7 @@ class SnackEventTileContent extends StatelessWidget {
               children: [
                 Text(
                   event.title,
-                  style: textTheme.bodyText1!.copyWith(
+                  style: textTheme.bodyLarge!.copyWith(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
@@ -55,7 +55,7 @@ class SnackEventTileContent extends StatelessWidget {
                   Text(
                     event.description ?? '',
                     overflow: TextOverflow.clip,
-                    style: textTheme.bodyText2!.copyWith(color: Colors.white),
+                    style: textTheme.bodyMedium!.copyWith(color: Colors.white),
                   ),
               ],
             ),
