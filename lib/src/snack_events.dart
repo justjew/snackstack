@@ -6,6 +6,7 @@ abstract class SnackstackEvent {}
 
 class SnackEvent extends SnackstackEvent {
   final Color color;
+  final Color foregroundColor;
   final String title;
   final String? description;
   final Duration duration;
@@ -18,6 +19,7 @@ class SnackEvent extends SnackstackEvent {
   SnackEvent({
     required this.color,
     required this.title,
+    this.foregroundColor = Colors.white,
     this.description,
     this.duration = const Duration(seconds: 5),
     this.actions = const [],
