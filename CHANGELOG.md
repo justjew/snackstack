@@ -1,3 +1,7 @@
+## 2.0.0
+
+Upgrade dart verison
+
 ## 1.2.0
 
 Added `foregroundColor` to `SnackEvent`

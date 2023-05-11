@@ -30,6 +30,13 @@ class _ApplicationState extends State<Application> {
           tileTheme: SnackTileThemeData(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(4)),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.red,
+                  spreadRadius: 2,
+                  blurRadius: 3,
+                )
+              ],
             ),
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
           ),
